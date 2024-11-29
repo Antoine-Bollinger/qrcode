@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4F5B93">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <title>QR-Code Generator by Abollinger</title>
+
+    <meta name="keywords" content="qrcode,qr-code,generator,free">
+    <meta property="og:title" content="QR-Code Generator">
+    <meta property="og:description"
+        content="Here you can easily create and download your QR-Code without having to sign in or paying something. It's free, no account is required, and it will always be this way.">
+    <meta property="og:site_name" content="QR-Code Generator by Abollinger">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="566">
+    <meta property="og:image:alt" content="QR-Code Generator free and no account needed.">
+    <meta property="og:image" content="https://qrcode.partez.net/images/preview.jpg">
+
+    <script defer="" src="https://kit.fontawesome.com/63124842e5.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script defer src="./js/script.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to partez's QR-Code free generator!</h1>
+        <br>
+        <p>Here you can easily create and download your QR-Code without having to sign in or paying something.
+            <strong>It's free</strong>, <strong>no account is required</strong>, and <strong>it will always be this
+                way</strong>.<br>
+        </p>
+    </header>
+    <section>
+        <form>
+            <input type="url" name="url" placeholder="https://qrcode.partez.net" />
+            <br>
+            <div class="input__group">
+                <label for="dimensions">Dimensions:</label><input name="dimensions" type="number" min="0" max="512"
+                    value="512" />
+                <p>px</p>
+            </div>
+            <br>
+            <button type="submit">Generate QR Code</button>
+        </form>
+        <div id="qrcode__container"></div>
+        <div id="qrcode__downloader">
+            <button type="button" hidden>Download</button>
+        </div>
+    </section>
+    <footer>
+        Coded with 💚 by <a href="mailto:abollinger@partez.net">Antoine Bollinger</a>&nbsp;|&nbsp;
+        <a href="https://github.com/antoinebollinger"><i class="fa-brands fa-github"></i></a>&nbsp;|&nbsp;
+        <a href="https://www.linkedin.com/in/antoinebollinger/"><i class="fa-brands fa-linkedin"></i></a>&nbsp;|&nbsp;
+        <a href="https://partez.net">partez.net</a>
+    </footer>
+</body>
+
+</html>
