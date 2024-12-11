@@ -32,8 +32,9 @@
         </p>
     </header>
     <section>
-        <form>
-            <input type="url" name="url" placeholder="https://qrcode.partez.net" />
+        <form novalidate>
+            <input type="url" name="url" placeholder="https://qrcode.partez.net" required />
+            <p class="input__error" id="qrcode__error"></p>
             <br>
             <div class="input__group">
                 <div class="input__group" id="qrcode__type">

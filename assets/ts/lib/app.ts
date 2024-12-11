@@ -12,6 +12,7 @@ export default class App {
     #qrcode_downloader: HTMLElement | null | undefined
     #qrcode_input_type: HTMLElement | null
     #qrcode_input_width: HTMLElement | null
+    #qrcode_input_error: HTMLElement | null
     #href: string
 
     constructor() {
@@ -25,9 +26,15 @@ export default class App {
         this.#qrcode_creator = document.forms[0] as HTMLFormElement
         this.#qrcode_input_type = document.getElementById("qrcode__type") as HTMLDivElement
         this.#qrcode_input_width = document.getElementById("qrcode__width") as HTMLDivElement
+        this.#qrcode_input_error = document.getElementById("qrcode__error") as HTMLParagraphElement
         this.#qrcode_container = document.getElementById("qrcode__container") as HTMLDivElement
         this.#qrcode_downloader = document.getElementById("qrcode__downloader")?.querySelector("button") as HTMLButtonElement
 
+    }
+
+    initialize(): void {
+        this.#qrcode_input_error!.innerHTML = ""
+        this.#qrcode_container!.innerHTML = ""
     }
 
     qrcode_creator_handler(): void {
@@ -38,11 +45,13 @@ export default class App {
 
         this.#qrcode_creator?.addEventListener("submit", e => {
             e.preventDefault()
+            this.initialize()
             try {
                 const target = e.target as HTMLFormElement
                 const widthInput = target[2] as HTMLInputElement
                 const formatSelect = target[1] as HTMLSelectElement
                 const urlInput = target[0] as HTMLInputElement
+                if (!urlInput.checkValidity()) throw new Error(urlInput.validationMessage)
                 this.#qrcode_container!.innerHTML = ""
                 this.#width = Number(widthInput.value) || 512
                 this.#format = formatSelect.value || "SVG"
@@ -55,7 +64,7 @@ export default class App {
                 else
                     throw new Error("Function was not found.")
             } catch (e) {
-                console.error(e)
+                this.#qrcode_input_error!.innerHTML = e.message
             }
         })
     }
@@ -85,10 +94,10 @@ export default class App {
             type: "svg"
         }, (err: Error, string: string) => {
             if (err) throw err
+            this.initialize()
             const blob = new Blob([string], { type: "image/svg+xml;charset=utf-8" })
             this.#href = URL.createObjectURL(blob)
             this.#qrcode = string
-            this.#qrcode_container!.innerHTML = ""
             this.#qrcode_container!.insertAdjacentHTML("beforeend", string)
         })
     }
@@ -99,10 +108,10 @@ export default class App {
             type: `image/${this.#format}`
         }, (err: Error, url: string) => {
             if (err) throw err
+            this.initialize()
             this.#href = url
             this.#qrcode = new Image()
             this.#qrcode.src = url
-            this.#qrcode_container!.innerHTML = ""
             this.#qrcode_container!.appendChild(this.#qrcode)
         })
     }

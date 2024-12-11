@@ -4,7 +4,7 @@
   "description": "An interface to generate QR-code using node-qrcode package",
   "main": "index.js",
   "scripts": {
-    "watch": "concurrently \"npm run bundleJs\" \"npm run bundleCss\"",
+    "watch": "concurrently --names js,css -c yellow,magenta \"npm run bundleJs\" \"npm run bundleCss\"",
     "bundleJs": "esbuild assets/ts/script.ts --outfile=js/bundle.js --watch --bundle --minify",
     "bundleCss": "sass --watch assets/scss/main.scss:css/style.css --style compressed"
   },
