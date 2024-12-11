@@ -1,0 +1,19 @@
+{
+  "name": "qrcode",
+  "version": "1.0.0",
+  "description": "An interface to generate QR-code using node-qrcode package",
+  "main": "index.js",
+  "scripts": {
+    "watch": "concurrently \"npm run bundleJs\" \"npm run bundleCss\"",
+    "bundleJs": "esbuild assets/ts/script.ts --outfile=js/bundle.js --watch --bundle --minify",
+    "bundleCss": "sass --watch assets/scss/main.scss:css/style.css --style compressed"
+  },
+  "author": "Antoine Bollinger <abollinger@partez.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.0",
+    "qrcode": "^1.5.4",
+    "sass": "^1.82.0"
+  }
+}

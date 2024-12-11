@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="favicon.ico" />
     <title>QR-Code Generator by Abollinger</title>
-
     <meta name="keywords" content="qrcode,qr-code,generator,free">
     <meta property="og:title" content="QR-Code Generator">
     <meta property="og:description"
@@ -19,10 +18,8 @@
     <meta property="og:image:height" content="566">
     <meta property="og:image:alt" content="QR-Code Generator free and no account needed.">
     <meta property="og:image" content="https://qrcode.partez.net/images/preview.jpg">
-
-    <script defer="" src="https://kit.fontawesome.com/63124842e5.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <script defer src="./js/script.js" type="module"></script>
+    <script defer src="https://kit.fontawesome.com/63124842e5.js" crossorigin="anonymous"></script>
+    <script defer src="./js/bundle.js" type="module"></script>
 </head>
 
 <body>
@@ -39,9 +36,23 @@
             <input type="url" name="url" placeholder="https://qrcode.partez.net" />
             <br>
             <div class="input__group">
-                <label for="dimensions">Dimensions:</label><input name="dimensions" type="number" min="0" max="512"
-                    value="512" />
-                <p>px</p>
+                <div class="input__group" id="qrcode__type">
+                    <label for="format">Image&nbsp;format:</label>
+                    <select name="format">
+                        <option data-function="printSVG" value="svg">SVG</option>
+                        <option data-function="printIMG" value="png">PNG</option>
+                        <option data-function="printIMG" value="jpeg">JPG</option>
+                        <option data-function="printIMG" value="webp">Webp</option>
+                    </select>
+                </div>
+                <div id="qrcode__width" hidden>
+                    <div class="input__group">
+                        <p>|</p>
+                        <label for="dimensions">Dimensions:</label>
+                        <input name="dimensions" type="number" min="0" max="512" value="512" />
+                        <p>px</p>
+                    </div>
+                </div>
             </div>
             <br>
             <button type="submit">Generate QR Code</button>
@@ -52,10 +63,17 @@
         </div>
     </section>
     <footer>
-        Coded with 💚 by <a href="mailto:abollinger@partez.net">Antoine Bollinger</a>&nbsp;|&nbsp;
-        <a href="https://github.com/antoinebollinger"><i class="fa-brands fa-github"></i></a>&nbsp;|&nbsp;
-        <a href="https://www.linkedin.com/in/antoinebollinger/"><i class="fa-brands fa-linkedin"></i></a>&nbsp;|&nbsp;
-        <a href="https://partez.net">partez.net</a>
+        <div>
+            Coded with 💚 by <a href="mailto:abollinger@partez.net">Antoine Bollinger</a>&nbsp;|&nbsp;
+            <a href="https://github.com/antoinebollinger"><i class="fa-brands fa-github"></i></a>&nbsp;|&nbsp;
+            <a href="https://www.linkedin.com/in/antoinebollinger/"><i
+                    class="fa-brands fa-linkedin"></i></a>&nbsp;|&nbsp;
+            <a href="https://partez.net">partez.net</a>
+        </div>
+        <div>
+            <em><small>This interface use the <a href="https://www.npmjs.com/package/qrcode">node-qrcode</a> package to
+                    generate the QR-Code.</small></em>
+        </div>
     </footer>
 </body>
 

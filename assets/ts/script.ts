@@ -1,4 +1,4 @@
-import App from "./lib/app.js"
+import App from "./lib/app.ts"
 
 window.onload = function () {
     new App()
