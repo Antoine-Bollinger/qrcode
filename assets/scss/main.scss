@@ -45,6 +45,11 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 15px;
+
+    >div {
+        width: 100%;
+    }
 }
 
 input {
@@ -80,8 +85,19 @@ button,
 select {
     border: #4F5B93 thin solid;
     border-radius: 5px;
-    min-height: 20px;
+    min-height: 32px;
     font-size: large;
+}
+
+.input__main {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .input__main {
+        flex-direction: column;
+    }
 }
 
 .input__group {
@@ -109,7 +125,7 @@ select {
 }
 
 #qrcode__downloader {
-    height: 20px;
+    height: 32px;
 }
 
 footer {

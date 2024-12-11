@@ -33,10 +33,11 @@
     </header>
     <section>
         <form novalidate>
-            <input type="url" name="url" placeholder="https://qrcode.partez.net" required />
-            <p class="input__error" id="qrcode__error"></p>
-            <br>
-            <div class="input__group">
+            <div>
+                <input type="url" name="url" placeholder="https://qrcode.partez.net" required />
+                <p class="input__error" id="qrcode__error"></p>
+            </div>
+            <div class="input__main">
                 <div class="input__group" id="qrcode__type">
                     <label for="format">Image&nbsp;format:</label>
                     <select name="format">
@@ -48,14 +49,12 @@
                 </div>
                 <div id="qrcode__width" hidden>
                     <div class="input__group">
-                        <p>|</p>
                         <label for="dimensions">Dimensions:</label>
                         <input name="dimensions" type="number" min="0" max="512" value="512" />
                         <p>px</p>
                     </div>
                 </div>
             </div>
-            <br>
             <button type="submit">Generate QR Code</button>
         </form>
         <div id="qrcode__container"></div>
