@@ -22,8 +22,8 @@ This website is an intuitive interface that leverages the QRCode.js library, del
 2. Set the Format:
     - Specify the desired format for the QR Code (available: svg, png, jpeg, webp).
 
-3. Set the Format:
-    - If the format is an png, jpeg or webp image, you can specify the widht (default: 512 px).
+3. Set the Width (for images):
+    - If the format is an png, jpeg or webp image, you can specify the width (default: 512px).
 
 4. Generate the QR Code:
     - Click the "Generate QR Code" button. A preview of the QR Code will appear on the page.
