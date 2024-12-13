@@ -1,0 +1,12 @@
+{
+    "documentTitle": "QR-Code-Generator von partez",
+    "lang": "Sprache",
+    "title": "Willkommen beim kostenlosen QR-Code-Generator von partez",
+    "intro": "Hier können Sie Ihren QR-Code ganz einfach erstellen und herunterladen, ohne sich anmelden oder etwas bezahlen zu müssen. <strong>Es ist kostenlos</strong>, <strong>es ist kein Konto erforderlich</strong> und <strong>das wird immer so bleiben</strong>.",
+    "format": "Bildformat:",
+    "width": "Breite",
+    "generate": "QR-Code generieren",
+    "download": "Herunterladen",
+    "coded": "Codiert mit 💚 von",
+    "generated": "Diese Schnittstelle verwendet das Paket <a href=\"https://www.npmjs.com/package/qrcode\">node-qrcode</a>, um den QR-Code zu generieren."
+}

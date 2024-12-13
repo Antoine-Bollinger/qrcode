@@ -8,12 +8,13 @@
 html,
 body {
     width: 100%;
+    height: 100%;
     min-height: 100vh;
 }
 
 body {
     margin: auto;
-    padding: 5%;
+    padding: 1% 5%;
     max-width: 1000px;
     display: flex;
     gap: 10px;
@@ -31,6 +32,12 @@ a {
     font-weight: bold;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 section {
     width: 100%;
     display: flex;
@@ -40,6 +47,11 @@ section {
     flex-grow: 1;
 }
 
+.align__end {
+    width: 100%;
+    align-items: end;
+}
+
 form {
     width: 100%;
     display: flex;
@@ -47,7 +59,7 @@ form {
     flex-direction: column;
     gap: 15px;
 
-    >div {
+    &#generateQRCode>div {
         width: 100%;
     }
 }
@@ -138,5 +150,60 @@ footer {
 
     >div {
         text-align: center;
+    }
+}
+
+#changeLang {
+
+    select[name="lang"],
+    select[name="lang"] option {
+        background-position: center left 4px;
+        background-repeat: no-repeat;
+        background-size: 25px auto;
+        padding-left: 30px;
+    }
+
+    select[name="lang"] {
+        &:has(option[value="en"]:checked) {
+            background-image: url("./../images/flags/en.svg");
+        }
+
+        &:has(option[value="de"]:checked) {
+            background-image: url("./../images/flags/de.svg");
+        }
+
+        &:has(option[value="fr"]:checked) {
+            background-image: url("./../images/flags/fr.svg");
+        }
+
+        &:has(option[value="es"]:checked) {
+            background-image: url("./../images/flags/es.svg");
+        }
+
+        &:has(option[value="pt"]:checked) {
+            background-image: url("./../images/flags/pt.svg");
+        }
+    }
+
+    select[name="lang"] option {
+        &[value="en"] {
+            background-image: url("./../images/flags/en.svg");
+        }
+
+        &[value="de"] {
+            background-image: url("./../images/flags/de.svg");
+        }
+
+        &[value="fr"] {
+            background-image: url("./../images/flags/fr.svg");
+        }
+
+        &[value="es"] {
+            background-image: url("./../images/flags/es.svg");
+        }
+
+        &[value="pt"] {
+            background-image: url("./../images/flags/pt.svg");
+        }
     }
 }

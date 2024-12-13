@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#4F5B93">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="favicon.ico" />
-    <title>QR-Code Generator by partez</title>
+    <title>{{ documentTitle }}</title>
     <meta name="keywords" content="qrcode,qr-code,generator,free">
     <meta property="og:title" content="QR-Code Generator">
     <meta property="og:description"
@@ -24,22 +24,29 @@
 
 <body>
     <header>
-        <h1>Welcome to partez's QR-Code free generator!</h1>
-        <br>
-        <p>Here you can easily create and download your QR-Code without having to sign in or paying something.
-            <strong>It's free</strong>, <strong>no account is required</strong>, and <strong>it will always be this
-                way</strong>.<br>
-        </p>
+        <form method="get" id="changeLang" class="align__end">
+            <div class="input__group">{{ lang }}
+                <select onChange="this.form.submit()" name="lang">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                    <option value="pt">PT</option>
+                </select>
+            </div>
+        </form>
+        <h1>{{ title }}</h1>
+        <p>{{ intro }}</p>
     </header>
     <section>
-        <form novalidate>
+        <form novalidate id="generateQRCode">
             <div>
                 <input type="url" name="url" placeholder="https://qrcode.partez.net" required />
                 <p class="input__error" id="qrcode__error"></p>
             </div>
             <div class="input__main">
                 <div class="input__group" id="qrcode__type">
-                    <label for="format">Image&nbsp;format:</label>
+                    <label for="format">{{ format }}</label>
                     <select name="format">
                         <option data-function="printSVG" value="svg">SVG</option>
                         <option data-function="printIMG" value="png">PNG</option>
@@ -49,30 +56,29 @@
                 </div>
                 <div id="qrcode__width" hidden>
                     <div class="input__group">
-                        <label for="width">Width:</label>
+                        <label for="width">{{ width }}</label>
                         <input name="width" type="number" min="0" max="512" value="512" />
                         <p>px</p>
                     </div>
                 </div>
             </div>
-            <button type="submit">Generate QR-Code</button>
+            <button type="submit">{{ generate }}</button>
         </form>
         <div id="qrcode__container"></div>
         <div id="qrcode__downloader">
-            <button type="button" hidden>Download</button>
+            <button type="button" hidden>{{ download }}</button>
         </div>
     </section>
     <footer>
         <div>
-            Coded with 💚 by <a href="mailto:abollinger@partez.net">Antoine Bollinger</a>&nbsp;|&nbsp;
+            {{ coded }} <a href="mailto:abollinger@partez.net">Antoine Bollinger</a>&nbsp;|&nbsp;
             <a href="https://github.com/Antoine-Bollinger/qrcode"><i class="fa-brands fa-github"></i></a>&nbsp;|&nbsp;
             <a href="https://www.linkedin.com/in/antoinebollinger/"><i
                     class="fa-brands fa-linkedin"></i></a>&nbsp;|&nbsp;
             <a href="https://partez.net">partez.net</a>
         </div>
         <div>
-            <em><small>This interface use the <a href="https://www.npmjs.com/package/qrcode">node-qrcode</a> package to
-                    generate the QR-Code.</small></em>
+            <em><small>{{ generated }}</small></em>
         </div>
     </footer>
 </body>

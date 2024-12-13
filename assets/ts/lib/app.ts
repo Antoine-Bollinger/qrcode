@@ -23,7 +23,7 @@ export default class App {
     }
 
     init(): void {
-        this.#qrcode_creator = document.forms[0] as HTMLFormElement
+        this.#qrcode_creator = document.forms["generateQRCode"] as HTMLFormElement
         this.#qrcode_input_type = document.getElementById("qrcode__type") as HTMLDivElement
         this.#qrcode_input_width = document.getElementById("qrcode__width") as HTMLDivElement
         this.#qrcode_input_error = document.getElementById("qrcode__error") as HTMLParagraphElement
