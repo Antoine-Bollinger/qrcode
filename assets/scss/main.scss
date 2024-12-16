@@ -47,17 +47,39 @@ section {
     flex-grow: 1;
 }
 
-.align__end {
-    width: 100%;
+.flex_start {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex_end {
+    display: flex;
     align-items: end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 form {
     width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 15px;
 
     &#generateQRCode>div {
         width: 100%;
@@ -114,18 +136,44 @@ select {
     }
 }
 
-.input__group {
+.input_group {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.input__error {
+.input_error {
     color: red;
     font-style: italic;
     height: 1em;
     width: 100%;
+}
+
+.close_input {
+    display: flex;
+    justify-content: end;
+
+    >span {
+        height: 32px;
+        width: 32px;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: rgba(#4F5B93, 1);
+        transition: background-color 200ms, color 200ms;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(#4F5B93, 0.9);
+        }
+
+        &:active {
+            color: #4F5B93;
+            background-color: rgba(#4F5B93, 0.1);
+        }
+    }
+
 }
 
 #qrcode__container {
@@ -143,11 +191,6 @@ select {
 }
 
 footer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-
     >div {
         text-align: center;
     }
@@ -155,8 +198,15 @@ footer {
 
 #changeLang {
 
+    #selectLang,
+    #selectLang select,
+    #selectLang label {
+        cursor: pointer;
+    }
+
     select[name="lang"],
     select[name="lang"] option {
+        border: none;
         background-position: center left 4px;
         background-repeat: no-repeat;
         background-size: 25px auto;
@@ -206,4 +256,86 @@ footer {
             background-image: url("./../images/flags/pt.svg");
         }
     }
+}
+
+dialog {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    background: transparent;
+    border: none;
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .dialog__body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form {
+            gap: 20px;
+        }
+
+        >div {
+            width: 250px;
+            background: #fff;
+            padding: 1%;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            display: none;
+
+            ~label {
+                cursor: pointer;
+                background-position: center left 4px;
+                background-repeat: no-repeat;
+                background-size: 25px auto;
+                padding-left: 30px;
+                color: rgba(0, 0, 0, 0.7);
+                transition: color 200ms;
+
+                &:hover {
+                    color: #000;
+                }
+
+            }
+
+            &:checked~label {
+                font-weight: bold;
+                color: #000;
+            }
+        }
+
+        input[value="en"]~label {
+            background-image: url("./../images/flags/en.svg");
+        }
+
+        input[value="de"]~label {
+            background-image: url("./../images/flags/de.svg");
+        }
+
+        input[value="fr"]~label {
+            background-image: url("./../images/flags/fr.svg");
+        }
+
+        input[value="es"]~label {
+            background-image: url("./../images/flags/es.svg");
+        }
+
+        input[value="pt"]~label {
+            background-image: url("./../images/flags/pt.svg");
+        }
+    }
+}
+
+.radio__group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
