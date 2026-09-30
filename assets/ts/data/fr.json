@@ -8,5 +8,5 @@
     "generate": "Générer le QR-Code",
     "download": "Télécharger",
     "coded": "Codé avec 💚 par",
-    "generated": "This interface use the <a href=\"https://www.npmjs.com/package/qrcode\">node-qrcode</a> package to generate the QR-Code."
+    "generated": "Cette interface utilise le package <a href=\"https://www.npmjs.com/package/qrcode\">node-qrcode</a> pour générer le QR code."
 }
